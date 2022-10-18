@@ -23,10 +23,10 @@ class TradingEnv(gym.Env):
 
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, df, window_size):
+    def __init__(self, df, window_size, seed=None):
         assert df.ndim == 2
 
-        self.seed()
+        self.seed(seed)
         self.df = df
         self.window_size = window_size
         self.prices, self.signal_features = self._process_data()
@@ -55,7 +55,8 @@ class TradingEnv(gym.Env):
         return [seed]
 
 
-    def reset(self):
+    def reset(self, seed=None):
+        self.seed(seed)
         self._done = False
         self._current_tick = self._start_tick
         self._last_trade_tick = self._current_tick - 1
