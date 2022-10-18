@@ -55,8 +55,13 @@ class TradingEnv(gym.Env):
         return [seed]
 
 
-    def reset(self, seed=None):
-        self.seed(seed)
+    def reset(
+        self,
+        *,
+        seed: Optional[int] = None,
+        options: Optional[dict] = None,
+    ):
+        super().reset(seed=seed)
         self._done = False
         self._current_tick = self._start_tick
         self._last_trade_tick = self._current_tick - 1
