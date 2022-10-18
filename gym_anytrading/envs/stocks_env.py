@@ -5,9 +5,10 @@ from .trading_env import TradingEnv, Actions, Positions
 
 class StocksEnv(TradingEnv):
 
-    def __init__(self, df, window_size, frame_bound):
+    def __init__(self, df, window_size, frame_bound, seed=None):
         assert len(frame_bound) == 2
 
+        self.seed(seed)
         self.frame_bound = frame_bound
         super().__init__(df, window_size)
 
