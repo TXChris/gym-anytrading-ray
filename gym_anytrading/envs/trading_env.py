@@ -98,7 +98,7 @@ class TradingEnv(gym.Env):
         )
         self._update_history(info)
 
-        return observation, step_reward, self._, False, info
+        return observation, step_reward, self._done, False, info
 
 
     def _get_observation(self):
