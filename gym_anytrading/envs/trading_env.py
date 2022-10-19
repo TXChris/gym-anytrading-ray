@@ -71,7 +71,7 @@ class TradingEnv(gym.Env):
             total_profit = self._total_profit,
             position = self._position.value
         )
-        return np.ndarray(observation)
+        return observation
 
 
     def step(self, action):
