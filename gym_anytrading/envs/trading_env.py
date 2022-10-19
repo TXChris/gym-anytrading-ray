@@ -65,7 +65,13 @@ class TradingEnv(gym.Env):
         self._total_profit = 1.  # unit
         self._first_rendering = True
         self.history = {}
-        return self._get_observation(), {}
+        observation = self._get_observation()
+        info = dict(
+            total_reward = self._total_reward,
+            total_profit = self._total_profit,
+            position = self._position.value
+        )
+        return observation, info
 
 
     def step(self, action):
