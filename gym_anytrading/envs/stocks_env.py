@@ -8,7 +8,6 @@ class StocksEnv(TradingEnv):
     def __init__(self, df, window_size, frame_bound):
         assert len(frame_bound) == 2
 
-        self.seed()
         self.frame_bound = frame_bound
         super().__init__(df, window_size)
 
