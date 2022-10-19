@@ -65,7 +65,7 @@ class TradingEnv(gym.Env):
         self._total_profit = 1.  # unit
         self._first_rendering = True
         self.history = {}
-        return self._get_observation()
+        return self._get_observation(), {}
 
 
     def step(self, action):
