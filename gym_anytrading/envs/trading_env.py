@@ -1,6 +1,6 @@
-import gym
-from gym import spaces
-from gym.utils import seeding
+import gymnasium as gym
+from gymnasium import spaces
+from gymnasium.utils import seeding
 import numpy as np
 from enum import Enum
 from typing import Optional
@@ -65,13 +65,12 @@ class TradingEnv(gym.Env):
         self._total_profit = 1.  # unit
         self._first_rendering = True
         self.history = {}
-        observation = self._get_observation()
         info = dict(
             total_reward = self._total_reward,
             total_profit = self._total_profit,
             position = self._position.value
         )
-        return observation
+        return self.get_observation()
 
 
     def step(self, action):
